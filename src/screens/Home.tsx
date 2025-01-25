@@ -1,22 +1,11 @@
-import Box from "src/components/Box";
+import SideBar from "src/components/SideBar";
+import { ContainerStyle } from "src/styled-components/styled-components";
 
-const Home = () => {
+const Home: React.FC = (): JSX.Element => {
   return (
-    <Box
-      backgroundColor="white"
-      display="flex"
-      style={{
-        flexDirection: "column",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-        margin: "12px",
-        padding: "5px",
-      }}
-    >
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-    </Box>
+    <ContainerStyle>
+      <SideBar />
+    </ContainerStyle>
   );
 };
 

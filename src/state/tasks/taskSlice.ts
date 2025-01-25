@@ -1,0 +1,40 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { mockTasks } from "src/helpers/mockData";
+
+export interface TaskType {
+  id: string;
+  name: string;
+  date: string;
+  time: string;
+}
+
+interface TaskSliceType {
+  tasks: TaskType[];
+}
+
+const initialState: TaskSliceType = {
+  tasks: mockTasks,
+};
+
+const taskSlice = createSlice({
+  name: "task",
+  initialState,
+  reducers: {
+    addTask: (state, action: PayloadAction<TaskType>) => {
+      state.tasks.push(action.payload);
+    },
+    updateTask: (state, action: PayloadAction<TaskType>) => {
+      const index = state.tasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.tasks[index] = action.payload;
+      }
+    },
+    deleteTask: (state, action: PayloadAction<TaskType>) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
+    },
+  },
+});
+
+export default taskSlice.reducer;
