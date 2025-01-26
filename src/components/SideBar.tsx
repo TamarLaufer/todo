@@ -1,23 +1,23 @@
 import {
-  ContainerTextStyle,
+  ScrollableContainer,
   SideBarContainerStyle,
 } from "src/styled-components/styled-components";
 import { ChangeLanguage } from "./ChangeLanguage";
-import { useTranslation } from "react-i18next";
 import Shutter from "./Shutter";
 import { useState } from "react";
-import PrivateCategiries from "./PrivateCategiries";
+import PrivateCategiries from "./PrivateCategories";
 
 const SideBar = (): JSX.Element => {
-  const { t } = useTranslation();
   const [isDisplay, setIsDisplay] = useState(true);
   const handleDisplaySideBar = () => {
     setIsDisplay((prev) => !prev);
   };
   return (
     <SideBarContainerStyle isDisplay={isDisplay}>
-      <PrivateCategiries/>
       <Shutter handleDisplaySideBar={handleDisplaySideBar} />
+      <ScrollableContainer>
+        <PrivateCategiries />
+      </ScrollableContainer>
       <ChangeLanguage />
     </SideBarContainerStyle>
   );

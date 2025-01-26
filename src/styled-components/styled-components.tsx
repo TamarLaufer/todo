@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerStyle = styled.div`
   flex: 1;
-  background:rgb(235, 226, 226);
+  background: rgb(235, 226, 226);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
   flex: 1;
   height: 100vh;
   width: ${(props) => (props.isDisplay ? "400px" : "8px")};
-  background:rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
   display: flex;
   transition: all 0.3s ease;
   align-items: ${(props) => (props.isDisplay ? "center" : "flex-start")};
@@ -28,22 +28,28 @@ export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
 `;
 
 export const ContainerTextStyle = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  backgound: rgb(202, 99, 99)
+  margin: 1rem;
+  background: rgb(255, 205, 240);
 `;
 
 export const TextStyle = styled.p`
-flex: 1;
-display: flex;
-// justify-content: center;
-// align-items: center;
-  background-color: pink;
-  font-size: 20px;
-  font-weight: bold;
+  display: flex;
+  font-size: 14px;
   color: #333;
   font-family: "Arial", sans-serif;
   margin: 1px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TextHeaderStyle = styled.p`
+  margin: 1rem;
+  font-weight: bold;
+  font-size: 18;
 `;
 
 export const ButtonStyle = styled.button`
@@ -97,7 +103,25 @@ export const ShutterStyle = styled.button`
   flex: 1;
   border-width: 0;
   border-radius: 1rem;
-  background:rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
   padding: 1rem;
   cursor: pointer;
+`;
+
+export const ScrollableContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+  padding: 1rem;
+
+  /* Optional: Add scrollbar styling for modern browsers */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;

@@ -1,4 +1,8 @@
 {
   "private": "private",
-  "group": "group"
+  "group": "group",
+  "home": "Home",
+  "completed": "completed",
+  "personal": "Personal",
+  "work": "Work"
 }
