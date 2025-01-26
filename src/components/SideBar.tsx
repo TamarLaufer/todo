@@ -5,18 +5,19 @@ import {
 import { ChangeLanguage } from "./ChangeLanguage";
 import Shutter from "./Shutter";
 import { useState } from "react";
-import PrivateCategiries from "./PrivateCategories";
+import PrivateCategories from "./PrivateCategories";
 
 const SideBar = (): JSX.Element => {
   const [isDisplay, setIsDisplay] = useState(true);
   const handleDisplaySideBar = () => {
     setIsDisplay((prev) => !prev);
   };
+
   return (
     <SideBarContainerStyle isDisplay={isDisplay}>
       <Shutter handleDisplaySideBar={handleDisplaySideBar} />
       <ScrollableContainer>
-        <PrivateCategiries />
+        <PrivateCategories />
       </ScrollableContainer>
       <ChangeLanguage />
     </SideBarContainerStyle>

@@ -1,13 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { DropdownWrapperStyle } from "src/styled-components/styled-components";
 import Dropdown from "./Dropdown";
+import { useCallback } from "react";
 
 export const ChangeLanguage: React.FC = (): JSX.Element => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
+  const changeLanguage = useCallback(
+    (lang: string) => {
+      i18n.changeLanguage(lang);
+    },
+    [i18n]
+  );
 
   const options = [
     { label: "English", value: "en" },

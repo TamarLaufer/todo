@@ -32,12 +32,12 @@ export const ContainerTextStyle = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  background: rgb(255, 205, 240);
+  // background: rgb(255, 205, 240);
 `;
 
 export const TextStyle = styled.p`
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   font-family: "Arial", sans-serif;
   margin: 1px;
@@ -124,4 +124,14 @@ export const ScrollableContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+`;
+
+export const IconContainerStyle = styled.div`
+  background: rgb(235, 226, 226);
+  padding: 8px;
+  border-radius: 90%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
