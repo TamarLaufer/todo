@@ -2,6 +2,7 @@ import {
   ShutterContainerStyle,
   ShutterStyle,
 } from "src/styled-components/styled-components";
+import { FaArrowRightFromBracket } from "react-icons/fa6"
 
 type ShutterPropsType = {
   handleDisplaySideBar: () => void;
@@ -9,8 +10,8 @@ type ShutterPropsType = {
 
 const Shutter = ({ handleDisplaySideBar }: ShutterPropsType) => {
   return (
-    <ShutterContainerStyle>
-      <ShutterStyle onClick={handleDisplaySideBar}>{22}</ShutterStyle>
+    <ShutterContainerStyle className="shutter">
+      <ShutterStyle onClick={handleDisplaySideBar}><FaArrowRightFromBracket /></ShutterStyle>
     </ShutterContainerStyle>
   );
 };

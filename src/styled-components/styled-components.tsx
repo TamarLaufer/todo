@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerStyle = styled.div`
   flex: 1;
-  background: #ffe3e3;
+  background:rgb(235, 226, 226);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,14 +12,14 @@ export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
   flex: 1;
   height: 100vh;
   width: ${(props) => (props.isDisplay ? "400px" : "8px")};
-  background: #fef9f2;
+  background:rgb(255, 255, 255);
   display: flex;
-  flex-direction: column;
   transition: all 0.3s ease;
   align-items: ${(props) => (props.isDisplay ? "center" : "flex-start")};
-  border-left: 1px solid #ddd;
+  padding: 3rem 0 3rem 0;
+  flex-direction: column;
 
-  & > * {
+  & > *:not(.shutter) {
     transform: ${(props) =>
       props.isDisplay ? "translateX(0%)" : "translateX(-100%)"};
     opacity: ${(props) => (props.isDisplay ? "1" : "0")};
@@ -27,17 +27,23 @@ export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
   }
 `;
 
+export const ContainerTextStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  backgound: rgb(202, 99, 99)
+`;
+
 export const TextStyle = styled.p`
-  // background-color: pink;
+flex: 1;
+display: flex;
+// justify-content: center;
+// align-items: center;
+  background-color: pink;
   font-size: 20px;
   font-weight: bold;
   color: #333;
   font-family: "Arial", sans-serif;
   margin: 1px;
-`;
-
-export const SpaceStyle = styled.div`
-  padding: 12px;
 `;
 
 export const ButtonStyle = styled.button`
@@ -82,7 +88,6 @@ export const ShutterContainerStyle = styled.div`
   position: relative;
   width: 0.7rem;
   height: 0.7rem;
-  background-color: #c890a7;
   padding: 1px;
   right: 48%;
   top: -5%;
@@ -92,7 +97,7 @@ export const ShutterStyle = styled.button`
   flex: 1;
   border-width: 0;
   border-radius: 1rem;
-  background: #fef9f2;
+  background:rgb(255, 255, 255);
   padding: 1rem;
   cursor: pointer;
 `;
