@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const ContainerStyle = styled.div`
   flex: 1;
-  background: rgb(235, 226, 226);
+  background: #eeeeee;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: space-between;
 `;
 
 export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
@@ -18,6 +19,7 @@ export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
   align-items: ${(props) => (props.isDisplay ? "center" : "flex-start")};
   padding: 3rem 0 3rem 0;
   flex-direction: column;
+  border-radius: 10% 0% 0% 10%;
 
   & > *:not(.shutter) {
     transform: ${(props) =>
@@ -31,7 +33,7 @@ export const ContainerTextStyle = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 5%;
   // background: rgb(255, 205, 240);
 `;
 
@@ -56,6 +58,7 @@ export const ButtonStyle = styled.button`
   border-radius: 1rem;
   width: 4rem;
   height: 3rem;
+  flex: 1;
 `;
 
 export const DropdownWrapperStyle = styled.div`
@@ -63,20 +66,21 @@ export const DropdownWrapperStyle = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2rem;
-  border-radius: 2rem;
+  border-radius: 20%;
   border-color: black;
-  border-width: 2px;
+  border-width: 1px;
 `;
 
 export const DropdownSelectStyle = styled.select`
   padding: 0.5rem;
   border: none;
-  border-radius: 2rem;
+  // border-radius: 2rem;
   position: relative;
   width: 100px;
 
   &:focus {
-    border-color: rgb(158, 176, 196);
+    border-color: rgba(213, 223, 234, 0.91);
+    border: none;
   }
 `;
 
@@ -84,7 +88,7 @@ export const DropdownOptionStyle = styled.option`
   cursor: pointer;
   padding: 2rem;
   border: none;
-  border-radius: 2rem;
+  border-radius: 50%;
 `;
 
 export const ShutterContainerStyle = styled.div`
@@ -127,7 +131,7 @@ export const ScrollableContainer = styled.div`
 `;
 
 export const IconContainerStyle = styled.div`
-  background: rgb(235, 226, 226);
+  background: #eeeeee;
   padding: 8px;
   border-radius: 90%;
   width: 5%;

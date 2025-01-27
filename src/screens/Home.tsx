@@ -6,7 +6,7 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <ContainerStyle>
       <SideBar />
-      <AddTask></AddTask>
+      <AddTask />
     </ContainerStyle>
   );
 };

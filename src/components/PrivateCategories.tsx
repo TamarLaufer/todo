@@ -7,6 +7,8 @@ import {
 } from "src/styled-components/styled-components";
 import { useTranslation } from "react-i18next";
 import { MdOutlineFileDownloadDone } from "react-icons/md";
+import { FaPersonRays } from "react-icons/fa6";
+import { GrWorkshop } from "react-icons/gr";
 
 type categoryItemType = {
   name: string;
@@ -33,8 +35,8 @@ const PrivateCategories = () => {
       count: 2,
       icon: <MdOutlineFileDownloadDone size={22} />,
     },
-    { name: t("personal"), count: 7, icon: <IoHomeOutline size={22} /> },
-    { name: t("work"), count: 4, icon: <IoHomeOutline size={22} /> },
+    { name: t("personal"), count: 7, icon: <FaPersonRays size={22} /> },
+    { name: t("work"), count: 4, icon: <GrWorkshop size={22} /> },
   ];
 
   return (

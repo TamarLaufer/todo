@@ -3,7 +3,7 @@ import { ButtonStyle } from "src/styled-components/styled-components";
 
 const AddTask = () => {
   const { t } = useTranslation();
-  return <ButtonStyle>{t("add task")}</ButtonStyle>;
+  return <ButtonStyle>{t("create new task")}</ButtonStyle>;
 };
 
 export default AddTask;
