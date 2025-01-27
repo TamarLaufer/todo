@@ -5,12 +5,10 @@ export const ContainerStyle = styled.div`
   background: #eeeeee;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: space-between;
+  flex-direction: row; /* שמירת תפריט הצד והשאר */
+  position: relative; /* כדי למקם את הכפתור בתוך המסך */
 `;
-
 export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
-  flex: 1;
   height: 100vh;
   width: ${(props) => (props.isDisplay ? "400px" : "8px")};
   background: rgb(255, 255, 255);
@@ -59,6 +57,7 @@ export const ButtonStyle = styled.button`
   width: 4rem;
   height: 3rem;
   flex: 1;
+  margin-top: auto;
 `;
 
 export const DropdownWrapperStyle = styled.div`
