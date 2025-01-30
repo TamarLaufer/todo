@@ -1,28 +1,37 @@
 import styled from "styled-components";
 
 export const ContainerStyle = styled.div`
-  flex: 1;
+  display: flex;
   background: #eeeeee;
   height: 100vh;
-  display: flex;
-  flex-direction: row; /* שמירת תפריט הצד והשאר */
-  position: relative; /* כדי למקם את הכפתור בתוך המסך */
+  flex-direction: row;
 `;
-export const SideBarContainerStyle = styled.div<{ isDisplay: boolean }>`
-  height: 100vh;
-  width: ${(props) => (props.isDisplay ? "400px" : "8px")};
+
+export const ContentStyle = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #eeeeee;
+`;
+
+export const SideBarContainerStyle = styled("div").withConfig({
+  shouldForwardProp: (prop) => prop !== "isDisplay",
+})<{ isDisplay: boolean }>`
+  margin: 1%;
+  width: ${({ isDisplay }) => (isDisplay ? "400px" : "8px")};
   background: rgb(255, 255, 255);
   display: flex;
   transition: all 0.3s ease;
-  align-items: ${(props) => (props.isDisplay ? "center" : "flex-start")};
-  padding: 3rem 0 3rem 0;
+  align-items: ${({ isDisplay }) => (isDisplay ? "center" : "flex-start")};
   flex-direction: column;
-  border-radius: 10% 0% 0% 10%;
+  border-radius: 3% 0% 0% 3%;
 
   & > *:not(.shutter) {
-    transform: ${(props) =>
-      props.isDisplay ? "translateX(0%)" : "translateX(-100%)"};
-    opacity: ${(props) => (props.isDisplay ? "1" : "0")};
+    transform: ${({ isDisplay }) =>
+      isDisplay ? "translateX(0%)" : "translateX(-100%)"};
+    opacity: ${({ isDisplay }) => (isDisplay ? "1" : "0")};
     transition: all 0.3s ease;
   }
 `;
@@ -35,7 +44,7 @@ export const ContainerTextStyle = styled.div`
   // background: rgb(255, 205, 240);
 `;
 
-export const TextStyle = styled.p`
+export const TextStyle = styled.div`
   display: flex;
   font-size: 16px;
   color: #333;
@@ -46,18 +55,33 @@ export const TextStyle = styled.p`
   align-items: center;
 `;
 
-export const TextHeaderStyle = styled.p`
+export const TextHeaderStyle = styled.h3`
   margin: 1rem;
-  font-weight: bold;
-  font-size: 18;
+`;
+
+export const ContainerButtonStyle = styled.div`
+  display: flex;
+  background-color: rgb(112, 179, 213);
 `;
 
 export const ButtonStyle = styled.button`
-  border-radius: 1rem;
-  width: 4rem;
+  background-color: rgb(51, 53, 54);
+  color: #fff;
+  width: 18rem;
   height: 3rem;
-  flex: 1;
-  margin-top: auto;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(173, 179, 185);
+  }
 `;
 
 export const DropdownWrapperStyle = styled.div`
@@ -91,27 +115,26 @@ export const DropdownOptionStyle = styled.option`
 `;
 
 export const ShutterContainerStyle = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 0.7rem;
-  height: 0.7rem;
-  padding: 1px;
-  right: 48%;
-  top: -5%;
+  padding: 2px;
+  right: 49%;
+  top: 4%;
+  // background: rgb(138, 71, 71);
+  overflow: visible;
 `;
 
 export const ShutterStyle = styled.button`
-  flex: 1;
   border-width: 0;
   border-radius: 1rem;
   background: rgb(255, 255, 255);
-  padding: 1rem;
   cursor: pointer;
+  padding: 20px;
+  z-index: 100;
 `;
 
-export const ScrollableContainer = styled.div`
+export const ScrollableContainerStyle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -129,7 +152,7 @@ export const ScrollableContainer = styled.div`
   }
 `;
 
-export const IconContainerStyle = styled.div`
+export const IconContainerStyle = styled.span`
   background: #eeeeee;
   padding: 8px;
   border-radius: 90%;
@@ -137,4 +160,18 @@ export const IconContainerStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const ContentContainerStyle = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AddTaskContainerStyle = styled.div`
+  display: flex;
+  flex-shrink: 1;
+  margin: 1rem;
 `;

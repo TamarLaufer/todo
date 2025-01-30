@@ -1,5 +1,5 @@
 import {
-  ScrollableContainer,
+  ScrollableContainerStyle,
   SideBarContainerStyle,
 } from "src/styled-components/styled-components";
 import { ChangeLanguage } from "./ChangeLanguage";
@@ -16,9 +16,9 @@ const SideBar = (): JSX.Element => {
   return (
     <SideBarContainerStyle isDisplay={isDisplay}>
       <Shutter handleDisplaySideBar={handleDisplaySideBar} />
-      <ScrollableContainer>
+      <ScrollableContainerStyle>
         <PrivateCategories />
-      </ScrollableContainer>
+      </ScrollableContainerStyle>
       <ChangeLanguage />
     </SideBarContainerStyle>
   );
