@@ -5,6 +5,7 @@ import AddTask from "src/components/AddTask";
 import SideBar from "src/components/SideBar";
 import {
   AddTaskContainerStyle,
+  CalendarWrapperStyle,
   ContainerStyle,
   ContentContainerStyle,
   ContentStyle,
@@ -12,7 +13,6 @@ import {
 import "react-calendar/dist/Calendar.css";
 
 type ValuePiece = Date | null;
-
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const Home: React.FC = (): JSX.Element => {
@@ -25,27 +25,27 @@ const Home: React.FC = (): JSX.Element => {
   }, []);
 
   return (
-    <>
-      <ContainerStyle>
-        <SideBar />
-        <ContentStyle>
-          <ContentContainerStyle>
-            <h1>{t("welcome to your tasks")}</h1>
-            <p>{t("add tasks or view existing ones")}</p>
-          </ContentContainerStyle>
-          <AddTaskContainerStyle>
-            <AddTask displayCalendarFunc={displayCalendarFunc} />
-          </AddTaskContainerStyle>
-        </ContentStyle>
-        {displayCalendar && (
-          <Calendar
-            activeStartDate={new Date(2025, 3, 1)}
-            onChange={onChange}
-            value={value}
-          />
-        )}
-      </ContainerStyle>
-    </>
+    <ContainerStyle>
+      <SideBar />
+      <ContentStyle>
+        <ContentContainerStyle>
+          <h1>{t("welcome to your tasks")}</h1>
+          <p>{t("add tasks or view existing ones")}</p>
+          {displayCalendar && (
+            <CalendarWrapperStyle>
+              <Calendar
+                activeStartDate={new Date(2025, 1, 31)}
+                onChange={onChange}
+                value={value}
+              />
+            </CalendarWrapperStyle>
+          )}
+        </ContentContainerStyle>
+        <AddTaskContainerStyle>
+          <AddTask displayCalendarFunc={displayCalendarFunc} />
+        </AddTaskContainerStyle>
+      </ContentStyle>
+    </ContainerStyle>
   );
 };
 

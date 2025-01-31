@@ -131,7 +131,7 @@ export const ShutterStyle = styled.button`
   background: rgb(255, 255, 255);
   cursor: pointer;
   padding: 20px;
-  z-index: 10;
+  z-index: 100;
 `;
 
 export const ScrollableContainerStyle = styled.div`
@@ -163,15 +163,28 @@ export const IconContainerStyle = styled.span`
 `;
 
 export const ContentContainerStyle = styled.div`
-  display: flex;
+  position: relative;
   flex: 1;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 `;
 
 export const AddTaskContainerStyle = styled.div`
   display: flex;
   flex-shrink: 1;
   margin: 1rem;
+`;
+
+export const CalendarWrapperStyle = styled.div`
+  position: absolute;
+  top: 16rem;
+  right: 1rem;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  z-index: 100;
+  width: 350px;
 `;
