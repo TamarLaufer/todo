@@ -19,7 +19,7 @@ export const ContentStyle = styled.div`
 export const SideBarContainerStyle = styled("div").withConfig({
   shouldForwardProp: (prop) => prop !== "isDisplay",
 })<{ isDisplay: boolean }>`
-  margin: 1%;
+  margin: 1% 0% 1% 0%;
   width: ${({ isDisplay }) => (isDisplay ? "400px" : "8px")};
   background: rgb(255, 255, 255);
   display: flex;
@@ -67,7 +67,7 @@ export const ContainerButtonStyle = styled.div`
 export const ButtonStyle = styled.button`
   background-color: rgb(51, 53, 54);
   color: #fff;
-  width: 18rem;
+  width: 25rem;
   height: 3rem;
   border-radius: 5rem;
   display: flex;
@@ -131,11 +131,11 @@ export const ShutterStyle = styled.button`
   background: rgb(255, 255, 255);
   cursor: pointer;
   padding: 20px;
-  z-index: 100;
+  z-index: 10;
 `;
 
 export const ScrollableContainerStyle = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* Enable vertical scrolling */
