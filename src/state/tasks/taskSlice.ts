@@ -3,9 +3,17 @@ import { mockTasks } from "src/helpers/mockData";
 
 export interface TaskType {
   id: string;
-  name: string;
+  title: string;
   date: string;
-  time: string;
+  startTime: string;
+  endTime: string;
+  icon?: string;
+  status: "pending" | "completed";
+  category: string;
+  description?: string;
+  reminder?: string;
+  priority?: "low" | "medium" | "high";
+  participants?: string[];
 }
 
 interface TaskSliceType {
