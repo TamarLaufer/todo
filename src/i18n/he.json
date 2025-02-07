@@ -1,12 +1,16 @@
 {
-  "private": "פרטי",
-  "group": "קבוצה",
-  "home": "עמוד הבית",
-  "completed": "משימות שבוצעו",
-  "personal": "משימות אישיות",
-  "work": "עבודה",
-  "create new task": "יצירת משימה חדשה",
-  "welcome to your tasks": "ברוכים הבאים למשימות שלך",
-  "add tasks or view existing ones": "הוסיפו משימות חדשות, או צפו במשימות קיימות",
-  "send form" : "שליחת הטופס"
+  "PRIVATE": "פרטי",
+  "GROUP": "קבוצה",
+  "HOME": "עמוד הבית",
+  "COMPLETED": "משימות שבוצעו",
+  "PERSONAL": "משימות אישיות",
+  "WORK": "עבודה",
+  "CREATE_NEW_TASK": "יצירת משימה חדשה",
+  "WELCOME_TO_YOUR_TASKS": "ברוכים הבאים למשימות שלך",
+  "ADD_NEW_TASKS_OR_VIEW_EXISTING_ONES": "הוסיפו משימות חדשות, או צפו במשימות קיימות",
+  "SEND_FORM" : "שליחת הטופס",
+  "TASK_NAME" : "שם המשימה",
+  "DATE" : "תאריך",
+  "STARTING_HOUR" : "שעת התחלת",
+  "ENDING_HOUR" : "שעת סיום"
 }

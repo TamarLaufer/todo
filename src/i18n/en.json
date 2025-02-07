@@ -1,12 +1,16 @@
 {
-  "private": "private",
-  "group": "group",
-  "home": "Home",
-  "completed": "completed",
-  "personal": "Personal",
-  "work": "Work",
-  "create new task": "Create new task",
-  "welcome to your tasks": "Welcome to your tasks",
-  "add tasks or view existing ones": "Add tasks or view existing ones",
-  "send form": "Send form"
+  "PRIVATE": "private",
+  "GROUP": "group",
+  "HOME": "Home",
+  "COMPLETED": "completed",
+  "PERSONAL": "Personal",
+  "WORK": "Work",
+  "CREATE_NEW_TASK": "Create new task",
+  "WELCOME_TO_YOUR_TASKS": "Welcome to your tasks",
+  "ADD_NEW_TASKS_OR_VIEW_EXISTING_ONES": "Add tasks or view existing ones",
+  "SEND_FORM": "Send form",
+  "TASK_NAME" : "Task name",
+  "DATE" : "Date",
+  "STARTING_HOUR" : "Starting hour",
+  "ENDING_HOUR" : "Ending hour"
 }

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, HTMLInputTypeAttribute, useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +22,13 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
     const [openModal, setOpenModal] = useState(false);
     const tasks = useSelector((state: RootReducer) => state.task.tasks);
 
+    const fields = [
+        { name: "title", type: "text", placeholder: t("TASK_NAME") },
+        { name: "date", type: "date", placeholder: t("DATE") },
+        { name: "startTime", type: "time", placeholder: t("STARTING_HOUR") },
+        { name: "endTime", type: "time", placeholder: t("ENDING_HOUR") },
+    ];
+
     const onSubmit = (data: TaskType) => {
         dispatch(
             addTask({ ...data, id: String(Date.now()), status: "pending" })
@@ -37,33 +44,26 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
     return (
         <Fragment>
             <ButtonStyle onClick={() => setOpenModal((prev) => !prev)}>
-                {t("create new task")}
+                {t("CREATE_NEW_TASK")}
             </ButtonStyle>
             {openModal && (
                 <Modal onClose={onCloseModal}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <InputStyle
-                            {...register("title", { required: true })}
-                            placeholder="שם המשימה"
-                        />
-                        <InputStyle
-                            {...register("date", { required: true })}
-                            type="date"
-                            placeholder="תאריך"
-                        />
-                        <InputStyle
-                            {...register("startTime", { required: true })}
-                            type="time"
-                            placeholder="שעת התחלה"
-                        />
-                        <InputStyle
-                            {...register("endTime", { required: true })}
-                            type="time"
-                            placeholder="שעת סיום"
-                        />
+                        {fields.map(({ name, type, placeholder }) => {
+                            return (
+                                <InputStyle
+                                    {...register(name as keyof TaskType, {
+                                        required: true,
+                                    })}
+                                    key={name}
+                                    type={type}
+                                    placeholder={placeholder}
+                                />
+                            );
+                        })}
                         <ContainerButtonStyle>
                             <ButtonStyle type="submit">
-                                {t("send form")}
+                                {t("SEND_FORM")}
                             </ButtonStyle>
                         </ContainerButtonStyle>
                     </form>

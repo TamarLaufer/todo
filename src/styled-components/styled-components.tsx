@@ -191,10 +191,10 @@ export const CalendarWrapperStyle = styled.div`
 export const ModalContainerStyle = styled.div`
     display: flex;
     position: fixed;
-    bottom: 20%;
+    bottom: 23%;
     left: 20%;
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     align-items: space-between;
     justify-content: center;
     background: rgb(248, 249, 250);
@@ -240,5 +240,5 @@ export const ContentModalStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1%;
+    padding: 3%;
 `;

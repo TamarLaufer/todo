@@ -11,8 +11,6 @@ import {
     ContentStyle,
 } from "src/styled-components/styled-components";
 import "react-calendar/dist/Calendar.css";
-import { useSelector } from "react-redux";
-import { RootReducer } from "src/state/store";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -31,8 +29,8 @@ const Home: React.FC = (): JSX.Element => {
             <SideBar />
             <ContentStyle>
                 <ContentContainerStyle>
-                    <h1>{t("welcome to your tasks")}</h1>
-                    <p>{t("add tasks or view existing ones")}</p>
+                    <h1>{t("WELCOME_TO_YOUR_TASKS")}</h1>
+                    <p>{t("ADD_NEW_TASKS_OR_VIEW_EXISTING_ONES")}</p>
                     {/* {displayCalendar && (
             <CalendarWrapperStyle>
               <Calendar
