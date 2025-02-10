@@ -261,6 +261,17 @@ export const ContainerCategoryStyle = styled.div`
     margin: 4px;
 `;
 
+export const CheckboxStyle = styled.input`
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:checked {
+        accent-color: ${COLORS.GREEN};
+    }
+`;
+
 export const TextHomeHeaderStyle = styled.h1``;
 
 export const HomeTextStyle = styled.p``;

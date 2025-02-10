@@ -14,7 +14,6 @@ import "react-calendar/dist/Calendar.css";
 import { useSelector } from "react-redux";
 import { RootReducer } from "src/state/store";
 import Tasks from "./components/Tasks";
-import { HOME_DISPLAY } from "src/constants/constants";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];

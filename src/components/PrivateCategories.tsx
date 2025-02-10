@@ -14,6 +14,7 @@ import { Fragment } from "react/jsx-runtime";
 import { useCallback } from "react";
 
 type categoryItemType = {
+    id: string;
     name: string;
     count: number;
     icon: JSX.Element;
@@ -22,7 +23,7 @@ type categoryItemType = {
 const PrivateCategories = () => {
     const { t } = useTranslation();
 
-    const renderCategory = useCallback((category: categoryItemType) => {
+    const renderCategory = (category: categoryItemType) => {
         return (
             <ContainerCategoryStyle>
                 <TextStyle>{category.icon}</TextStyle>
@@ -30,17 +31,33 @@ const PrivateCategories = () => {
                 <IconContainerStyle>{category.count}</IconContainerStyle>
             </ContainerCategoryStyle>
         );
-    }, []);
+    };
 
     const categoriesItems: categoryItemType[] = [
-        { name: t("HOME"), count: 3, icon: <IoHomeOutline size={22} /> },
         {
+            id: "home",
+            name: t("HOME"),
+            count: 3,
+            icon: <IoHomeOutline size={22} />,
+        },
+        {
+            id: "completed",
             name: t("COMPLETED"),
             count: 2,
             icon: <MdOutlineFileDownloadDone size={22} />,
         },
-        { name: t("PERSONAL"), count: 7, icon: <FaPersonRays size={22} /> },
-        { name: t("WORK"), count: 4, icon: <GrWorkshop size={22} /> },
+        {
+            id: "personal",
+            name: t("PERSONAL"),
+            count: 7,
+            icon: <FaPersonRays size={22} />,
+        },
+        {
+            id: "work",
+            name: t("WORK"),
+            count: 4,
+            icon: <GrWorkshop size={22} />,
+        },
     ];
 
     return (
