@@ -3,7 +3,7 @@ import { COLORS } from "../colors";
 
 export const ContainerStyle = styled.div`
     display: flex;
-    background: ${COLORS.GREY}
+    background: ${COLORS.GREY};
     height: 100vh;
     flex-direction: row;
 `;
@@ -159,15 +159,6 @@ export const IconContainerStyle = styled.span`
     align-items: center;
 `;
 
-export const ContentContainerStyle = styled.div`
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
-
 export const AddTaskContainerStyle = styled.div`
     display: flex;
     flex-shrink: 1;
@@ -258,3 +249,5 @@ export const ContainerCategoryStyle = styled.div`
 `;
 
 export const TextHomeHeaderStyle = styled.h1``;
+
+export const HomeTextStyle = styled.p``;

@@ -5,10 +5,9 @@ import AddTask from "src/screens/Home/components/AddTask";
 import SideBar from "src/components/SideBar";
 import {
     AddTaskContainerStyle,
-    CalendarWrapperStyle,
     ContainerStyle,
-    ContentContainerStyle,
     ContentStyle,
+    HomeTextStyle,
     TextHomeHeaderStyle,
 } from "src/styling/styled-components/styled-components";
 import "react-calendar/dist/Calendar.css";
@@ -37,7 +36,9 @@ const Home: React.FC = (): JSX.Element => {
                     <TextHomeHeaderStyle>
                         {t("WELCOME_TO_YOUR_TASKS")}
                     </TextHomeHeaderStyle>
-                    <p>{t("ADD_NEW_TASKS_OR_VIEW_EXISTING_ONES")}</p>
+                    <HomeTextStyle>
+                        {t("ADD_NEW_TASKS_OR_VIEW_EXISTING_ONES")}
+                    </HomeTextStyle>
                 </>
             );
         } else {
@@ -49,8 +50,7 @@ const Home: React.FC = (): JSX.Element => {
         <ContainerStyle>
             <SideBar />
             <ContentStyle>
-                <ContentContainerStyle>
-                    {/* {displayCalendar && (
+                {/* {displayCalendar && (
                         <CalendarWrapperStyle>
                         <Calendar
                             activeStartDate={new Date(2025, 1, 31)}
@@ -59,11 +59,10 @@ const Home: React.FC = (): JSX.Element => {
                         />
                         </CalendarWrapperStyle>
                         )} */}
-                    {renderContent()}
-                    <AddTaskContainerStyle>
-                        <AddTask displayCalendarFunc={displayCalendarFunc} />
-                    </AddTaskContainerStyle>
-                </ContentContainerStyle>
+                {renderContent()}
+                <AddTaskContainerStyle>
+                    <AddTask displayCalendarFunc={displayCalendarFunc} />
+                </AddTaskContainerStyle>
             </ContentStyle>
         </ContainerStyle>
     );
