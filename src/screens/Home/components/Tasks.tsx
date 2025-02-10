@@ -3,6 +3,7 @@ import List from "src/components/List";
 import { RootReducer } from "src/state/store";
 import { TaskType } from "src/state/tasks/taskSlice";
 import {
+    ContainerAllTasksStyle,
     ContainerTaskStyle,
     TextStyle,
 } from "src/styling/styled-components/styled-components";
@@ -20,7 +21,11 @@ const renderTask = (task: TaskType) => {
 const Tasks = () => {
     const tasks = useSelector((state: RootReducer) => state.task.tasks);
 
-    return <List items={tasks} renderItems={renderTask} />;
+    return (
+        <ContainerAllTasksStyle>
+            <List items={tasks} renderItems={renderTask} />
+        </ContainerAllTasksStyle>
+    );
 };
 
 export default Tasks;

@@ -4,7 +4,7 @@ import { COLORS } from "../colors";
 export const ContainerStyle = styled.div`
     display: flex;
     background: ${COLORS.GREY};
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: row;
 `;
 
@@ -49,6 +49,7 @@ export const TextStyle = styled.p`
     color: ${COLORS.DARK};
     font-family: "Arial", sans-serif;
     margin: 1px;
+    word-wrap: break-word;
 `;
 
 export const TextSideBarHeaderStyle = styled.h3`
@@ -234,18 +235,30 @@ export const ContentModalStyle = styled.div`
 
 export const ContainerTaskStyle = styled.div`
     display: flex;
-    background: white;
-    justify-content: space-evenly;
+    background: ${COLORS.WHITE};
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 4px;
+    border-radius: 10px;
 `;
 
-export const ListTextStyle = styled.p``;
+export const ContainerAllTasksStyle = styled.div`
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
 
 export const ContainerCategoryStyle = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 4px;
 `;
 
 export const TextHomeHeaderStyle = styled.h1``;

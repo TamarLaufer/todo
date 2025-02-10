@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { ListTextStyle } from "src/styling/styled-components/styled-components";
 
 interface ListPropsType<T> {
     items: T[];
@@ -10,7 +9,7 @@ const List = <T extends {}>({ items, renderItems }: ListPropsType<T>) => {
     return (
         <>
             {items.map((item, i) => (
-                <ListTextStyle key={i}>{renderItems(item)}</ListTextStyle>
+                <Fragment key={i}>{renderItems(item)}</Fragment>
             ))}
         </>
     );
