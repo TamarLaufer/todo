@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { COLORS } from "../colors";
 
 export const ContainerStyle = styled.div`
     display: flex;
-    background: #eeeeee;
+    background: ${COLORS.GREY}
     height: 100vh;
     flex-direction: row;
 `;
@@ -13,7 +14,7 @@ export const ContentStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #eeeeee;
+    background: ${COLORS.GREY};
 `;
 
 export const SideBarContainerStyle = styled("div").withConfig({
@@ -21,7 +22,7 @@ export const SideBarContainerStyle = styled("div").withConfig({
 })<{ isDisplay: boolean }>`
     margin: 1% 0% 1% 0%;
     width: ${({ isDisplay }) => (isDisplay ? "400px" : "8px")};
-    background: rgb(255, 255, 255);
+    background: ${COLORS.WHITE};
     display: flex;
     transition: all 0.3s ease;
     align-items: ${({ isDisplay }) => (isDisplay ? "center" : "flex-start")};
@@ -43,19 +44,16 @@ export const ContainerTextStyle = styled.div`
     margin: 5%;
 `;
 
-export const TextStyle = styled.div`
-    display: flex;
+export const TextStyle = styled.p`
     font-size: 16px;
-    color: #333;
+    color: ${COLORS.DARK};
     font-family: "Arial", sans-serif;
     margin: 1px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 `;
 
-export const TextHeaderStyle = styled.h3`
+export const TextSideBarHeaderStyle = styled.h3`
     margin: 1rem;
+    color: ${COLORS.DARK};
 `;
 
 export const ContainerButtonStyle = styled.div`
@@ -242,3 +240,21 @@ export const ContentModalStyle = styled.div`
     justify-content: center;
     padding: 3%;
 `;
+
+export const ContainerTaskStyle = styled.div`
+    display: flex;
+    background: white;
+    justify-content: space-evenly;
+    align-items: center;
+`;
+
+export const ListTextStyle = styled.p``;
+
+export const ContainerCategoryStyle = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+export const TextHomeHeaderStyle = styled.h1``;

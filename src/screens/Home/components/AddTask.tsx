@@ -1,4 +1,10 @@
-import { Fragment, HTMLInputTypeAttribute, useCallback, useState } from "react";
+import {
+    Fragment,
+    HTMLInputTypeAttribute,
+    useCallback,
+    useEffect,
+    useState,
+} from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +14,8 @@ import {
     ButtonStyle,
     ContainerButtonStyle,
     InputStyle,
-} from "src/styled-components/styled-components";
-import Modal from "./Modal";
+} from "src/styling/styled-components/styled-components";
+import Modal from "../../../components/Modal";
 
 type AddTaskType = {
     displayCalendarFunc: () => void;
@@ -41,11 +47,17 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
         setOpenModal(false);
     };
 
+    useEffect(() => {
+        console.log(tasks, "tasks");
+    }, [tasks]);
+
     return (
         <Fragment>
-            <ButtonStyle onClick={() => setOpenModal((prev) => !prev)}>
-                {t("CREATE_NEW_TASK")}
-            </ButtonStyle>
+            <ContainerButtonStyle>
+                <ButtonStyle onClick={() => setOpenModal((prev) => !prev)}>
+                    {t("CREATE_NEW_TASK")}
+                </ButtonStyle>
+            </ContainerButtonStyle>
             {openModal && (
                 <Modal onClose={onCloseModal}>
                     <form onSubmit={handleSubmit(onSubmit)}>

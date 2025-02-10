@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { mockTasks } from "src/helpers/mockData";
+import { mockTasks } from "src/utils/mockData";
 
 export interface TaskType {
   id: string;
@@ -21,7 +21,7 @@ interface TaskSliceType {
 }
 
 const initialState: TaskSliceType = {
-  tasks: mockTasks,
+  tasks: [],
 };
 
 const taskSlice = createSlice({

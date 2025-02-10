@@ -3,7 +3,7 @@ import {
     ModalContainerStyle,
     Overlay,
     XButtonStyle,
-} from "src/styled-components/styled-components";
+} from "src/styling/styled-components/styled-components";
 import { IoClose } from "react-icons/io5";
 
 type ModalPropsType = {

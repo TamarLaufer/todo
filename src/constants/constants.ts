@@ -1,0 +1,5 @@
+export const HOME_DISPLAY = {
+  INITIAL: "INITIAL",
+  TODO_LIST: "TODO_LIST",
+  COMPLETED: "COMPLETED",
+};

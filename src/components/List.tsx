@@ -1,19 +1,19 @@
 import React, { Fragment } from "react";
-import { TextStyle } from "src/styled-components/styled-components";
+import { ListTextStyle } from "src/styling/styled-components/styled-components";
 
 interface ListPropsType<T> {
-  items: T[];
-  renderItems: (item: T) => React.ReactNode;
+    items: T[];
+    renderItems: (item: T) => React.ReactNode;
 }
 
 const List = <T extends {}>({ items, renderItems }: ListPropsType<T>) => {
-  return (
-    <>
-      {items.map((item, i) => (
-        <TextStyle key={i}>{renderItems(item)}</TextStyle>
-      ))}
-    </>
-  );
+    return (
+        <>
+            {items.map((item, i) => (
+                <ListTextStyle key={i}>{renderItems(item)}</ListTextStyle>
+            ))}
+        </>
+    );
 };
 
 export default List;
