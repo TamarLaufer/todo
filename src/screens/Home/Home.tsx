@@ -43,7 +43,7 @@ const Home: React.FC = (): JSX.Element => {
         } else {
             return <Tasks />;
         }
-    }, [tasks]);
+    }, [t, tasks]);
 
     return (
         <ContainerStyle>
