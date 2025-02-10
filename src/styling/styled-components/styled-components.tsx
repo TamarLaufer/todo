@@ -164,6 +164,8 @@ export const AddTaskContainerStyle = styled.div`
     display: flex;
     flex-shrink: 1;
     margin: 1rem;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const CalendarWrapperStyle = styled.div`
@@ -270,6 +272,14 @@ export const CheckboxStyle = styled.input`
     &:checked {
         accent-color: ${COLORS.GREEN};
     }
+`;
+
+export const ContainerContentStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    width: 100%;
 `;
 
 export const TextHomeHeaderStyle = styled.h1``;

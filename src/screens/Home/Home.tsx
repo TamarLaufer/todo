@@ -5,6 +5,7 @@ import AddTask from "src/screens/Home/components/AddTask";
 import SideBar from "src/components/SideBar";
 import {
     AddTaskContainerStyle,
+    ContainerContentStyle,
     ContainerStyle,
     ContentStyle,
     HomeTextStyle,
@@ -48,8 +49,9 @@ const Home: React.FC = (): JSX.Element => {
     return (
         <ContainerStyle>
             <SideBar />
-            <ContentStyle>
-                {/* {displayCalendar && (
+            <ContainerContentStyle>
+                <ContentStyle>
+                    {/* {displayCalendar && (
                         <CalendarWrapperStyle>
                         <Calendar
                             activeStartDate={new Date(2025, 1, 31)}
@@ -58,11 +60,12 @@ const Home: React.FC = (): JSX.Element => {
                         />
                         </CalendarWrapperStyle>
                         )} */}
-                {renderContent()}
+                    {renderContent()}
+                </ContentStyle>
                 <AddTaskContainerStyle>
                     <AddTask displayCalendarFunc={displayCalendarFunc} />
                 </AddTaskContainerStyle>
-            </ContentStyle>
+            </ContainerContentStyle>
         </ContainerStyle>
     );
 };
