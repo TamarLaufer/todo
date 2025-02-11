@@ -282,6 +282,17 @@ export const ContainerContentStyle = styled.div`
     width: 100%;
 `;
 
+export const ContainerHeaderStyle = styled.div`
+    display: flex;
+    margin: 6%;
+    flex-direction: column;
+`;
+
+export const HeaderTextStyle = styled.p`
+    font-size: 20;
+    line-height: 0.15;
+`;
+
 export const TextHomeHeaderStyle = styled.h1``;
 
 export const HomeTextStyle = styled.p``;

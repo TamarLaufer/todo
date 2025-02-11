@@ -12,5 +12,11 @@
   "TASK_NAME" : "Task name",
   "DATE" : "Date",
   "STARTING_HOUR" : "Starting hour",
-  "ENDING_HOUR" : "Ending hour"
+  "ENDING_HOUR" : "Ending hour",
+  "CATEGORY" : "Category",
+  "HELLO" : "{{timeInDay}} {{userName}},",
+  "TODAY" : "Today, {{date}}",
+    "GOOD_MORNING" : "Good Morning",
+  "GOOD_AFTERNOON" : "Good Afternoon",
+  "GOOD_NIGHT" : "Good night"
 }

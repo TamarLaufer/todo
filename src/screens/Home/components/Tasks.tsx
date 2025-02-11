@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import List from "src/components/List";
 import { RootReducer } from "src/state/store";

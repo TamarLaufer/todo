@@ -15,6 +15,7 @@ import "react-calendar/dist/Calendar.css";
 import { useSelector } from "react-redux";
 import { RootReducer } from "src/state/store";
 import Tasks from "./components/Tasks";
+import Header from "./components/Header";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -50,6 +51,7 @@ const Home: React.FC = (): JSX.Element => {
         <ContainerStyle>
             <SideBar />
             <ContainerContentStyle>
+                <Header />
                 <ContentStyle>
                     {/* {displayCalendar && (
                         <CalendarWrapperStyle>

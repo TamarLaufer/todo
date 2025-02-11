@@ -12,5 +12,11 @@
   "TASK_NAME" : "שם המשימה",
   "DATE" : "תאריך",
   "STARTING_HOUR" : "שעת התחלת",
-  "ENDING_HOUR" : "שעת סיום"
+  "ENDING_HOUR" : "שעת סיום",
+  "CATEGORY" : "קטגוריה",
+  "HELLO" : "{{timeInDay}} {{userName}},",
+  "TODAY" : "היום, {{date}}",
+  "GOOD_MORNING" : "בוקר טוב",
+  "GOOD_AFTERNOON" : "צהריים טובים",
+  "GOOD_NIGHT" : "לילה טוב"
 }

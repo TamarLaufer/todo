@@ -1,10 +1,4 @@
-import {
-    Fragment,
-    HTMLInputTypeAttribute,
-    useCallback,
-    useEffect,
-    useState,
-} from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,9 +7,12 @@ import { addTask, TaskType } from "src/state/tasks/taskSlice";
 import {
     ButtonStyle,
     ContainerButtonStyle,
+    DropdownSelectStyle,
     InputStyle,
 } from "src/styling/styled-components/styled-components";
 import Modal from "../../../components/Modal";
+import { type } from "@testing-library/user-event/dist/type";
+import { CATEGORIES } from "src/constants/constants";
 
 type AddTaskType = {
     displayCalendarFunc: () => void;
@@ -33,6 +30,7 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
         { name: "date", type: "date", placeholder: t("DATE") },
         { name: "startTime", type: "time", placeholder: t("STARTING_HOUR") },
         { name: "endTime", type: "time", placeholder: t("ENDING_HOUR") },
+        { name: "category", type: "dropdown", placeholder: t("CATEGORY") },
     ];
 
     const onSubmit = (data: TaskType) => {
@@ -62,7 +60,22 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
                 <Modal onClose={onCloseModal}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {fields.map(({ name, type, placeholder }) => {
-                            return (
+                            return type === "dropdown" ? (
+                                <DropdownSelectStyle
+                                    key={name}
+                                    {...register(name, { required: true })}
+                                >
+                                    <option value="">{placeholder}</option>
+                                    {CATEGORIES.map((category) => (
+                                        <option
+                                            key={category.id}
+                                            value={category.id}
+                                        >
+                                            {category.name}
+                                        </option>
+                                    ))}
+                                </DropdownSelectStyle>
+                            ) : (
                                 <InputStyle
                                     {...register(name as keyof TaskType, {
                                         required: true,

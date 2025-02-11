@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { mockTasks } from "src/utils/mockData";
 
 export interface TaskType {
   id: string;
