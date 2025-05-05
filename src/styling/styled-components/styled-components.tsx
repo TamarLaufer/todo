@@ -277,9 +277,8 @@ export const CheckboxStyle = styled.input`
 export const ContainerContentStyle = styled.div`
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    justify-content: center;
     width: 100%;
+    padding-bottom: 10%;
 `;
 
 export const ContainerHeaderStyle = styled.div`
@@ -291,6 +290,13 @@ export const ContainerHeaderStyle = styled.div`
 export const HeaderTextStyle = styled.p`
     font-size: 20;
     line-height: 0.15;
+`;
+
+export const HomeTextContainerStyle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `;
 
 export const TextHomeHeaderStyle = styled.h1``;

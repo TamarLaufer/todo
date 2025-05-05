@@ -1,16 +1,15 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./screens/Home/Home";
-import Register from "./screens/Register/Register";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import AppRoutes from "./routes";
 
 const App: React.FC = (): JSX.Element => {
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/register" element={<Register />} />
-            </Routes>
+            <AuthProvider>
+                <AppRoutes />
+            </AuthProvider>
         </Router>
     );
 };

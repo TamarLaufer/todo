@@ -8,6 +8,7 @@ import {
     ContainerContentStyle,
     ContainerStyle,
     ContentStyle,
+    HomeTextContainerStyle,
     HomeTextStyle,
     TextHomeHeaderStyle,
 } from "src/styling/styled-components/styled-components";
@@ -65,7 +66,7 @@ const Home: React.FC = (): JSX.Element => {
                     {renderContent()}
                 </ContentStyle>
                 <AddTaskContainerStyle>
-                    <AddTask displayCalendarFunc={displayCalendarFunc} />
+                    <AddTask displayCalendar={displayCalendarFunc} />
                 </AddTaskContainerStyle>
             </ContainerContentStyle>
         </ContainerStyle>

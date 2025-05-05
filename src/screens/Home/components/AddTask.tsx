@@ -11,38 +11,91 @@ import {
     InputStyle,
 } from "src/styling/styled-components/styled-components";
 import Modal from "../../../components/Modal";
-import { type } from "@testing-library/user-event/dist/type";
 import { CATEGORIES } from "src/constants/constants";
+import Toast from "../../../components/Toast";
 
 type AddTaskType = {
-    displayCalendarFunc: () => void;
+    displayCalendar: () => void;
 };
 
-const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
+type FormField = {
+    name: keyof TaskType;
+    type: "text" | "date" | "time" | "dropdown";
+    placeholder: string;
+    validation: {
+        required: string;
+    };
+};
+
+const AddTask = ({ displayCalendar }: AddTaskType) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { register, handleSubmit, reset } = useForm<TaskType>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<TaskType>();
     const [openModal, setOpenModal] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [showToast, setShowToast] = useState(false);
     const tasks = useSelector((state: RootReducer) => state.task.tasks);
 
-    const fields = [
-        { name: "title", type: "text", placeholder: t("TASK_NAME") },
-        { name: "date", type: "date", placeholder: t("DATE") },
-        { name: "startTime", type: "time", placeholder: t("STARTING_HOUR") },
-        { name: "endTime", type: "time", placeholder: t("ENDING_HOUR") },
-        { name: "category", type: "dropdown", placeholder: t("CATEGORY") },
+    const fields: FormField[] = [
+        { 
+            name: "title", 
+            type: "text", 
+            placeholder: t("TASK_NAME"),
+            validation: { required: t("TASK_NAME_REQUIRED") }
+        },
+        { 
+            name: "date", 
+            type: "date", 
+            placeholder: t("DATE"),
+            validation: { required: t("DATE_REQUIRED") }
+        },
+        { 
+            name: "startTime", 
+            type: "time", 
+            placeholder: t("STARTING_HOUR"),
+            validation: { required: t("START_TIME_REQUIRED") }
+        },
+        { 
+            name: "endTime", 
+            type: "time", 
+            placeholder: t("ENDING_HOUR"),
+            validation: { required: t("END_TIME_REQUIRED") }
+        },
+        { 
+            name: "category", 
+            type: "dropdown", 
+            placeholder: t("CATEGORY"),
+            validation: { required: t("CATEGORY_REQUIRED") }
+        },
     ];
 
-    const onSubmit = (data: TaskType) => {
-        dispatch(
-            addTask({ ...data, id: String(Date.now()), status: "pending" })
-        );
-        reset();
-        displayCalendarFunc();
+    const onSubmit = async (data: TaskType) => {
+        try {
+            setIsSubmitting(true);
+            dispatch(
+                addTask({ ...data, id: String(Date.now()), status: "pending" })
+            );
+            reset();
+            setOpenModal(false);
+            displayCalendar();
+        } catch (error) {
+            console.error("Error submitting task:", error);
+            setErrorMessage(t("ERROR_SUBMITTING_TASK"));
+            setShowToast(true);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const onCloseModal = () => {
         setOpenModal(false);
+        reset();
+    };
+
+    const handleToastClose = () => {
+        setShowToast(false);
+        setErrorMessage("");
     };
 
     useEffect(() => {
@@ -51,44 +104,64 @@ const AddTask = ({ displayCalendarFunc }: AddTaskType) => {
 
     return (
         <Fragment>
+            <Toast 
+                message={errorMessage}
+                isVisible={showToast}
+                onClose={handleToastClose}
+            />
             <ContainerButtonStyle>
-                <ButtonStyle onClick={() => setOpenModal((prev) => !prev)}>
+                <ButtonStyle 
+                    onClick={() => setOpenModal((prev) => !prev)}
+                    aria-label={t("CREATE_NEW_TASK")}
+                >
                     {t("CREATE_NEW_TASK")}
                 </ButtonStyle>
             </ContainerButtonStyle>
             {openModal && (
                 <Modal onClose={onCloseModal}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        {fields.map(({ name, type, placeholder }) => {
+                    <form onSubmit={handleSubmit(onSubmit)} aria-label={t("ADD_TASK_FORM")}>
+                        {fields.map(({ name, type, placeholder, validation }) => {
                             return type === "dropdown" ? (
-                                <DropdownSelectStyle
-                                    key={name}
-                                    {...register(name, { required: true })}
-                                >
-                                    <option value="">{placeholder}</option>
-                                    {CATEGORIES.map((category) => (
-                                        <option
-                                            key={category.id}
-                                            value={category.id}
-                                        >
-                                            {category.name}
-                                        </option>
-                                    ))}
-                                </DropdownSelectStyle>
+                                <div key={name}>
+                                    <DropdownSelectStyle
+                                        {...register(name, validation)}
+                                        aria-label={placeholder}
+                                    >
+                                        <option value="">{placeholder}</option>
+                                        {CATEGORIES.map((category) => (
+                                            <option
+                                                key={category.id}
+                                                value={category.id}
+                                            >
+                                                {category.name}
+                                            </option>
+                                        ))}
+                                    </DropdownSelectStyle>
+                                    {errors[name] && (
+                                        <span role="alert">{errors[name]?.message as string}</span>
+                                    )}
+                                </div>
                             ) : (
-                                <InputStyle
-                                    {...register(name as keyof TaskType, {
-                                        required: true,
-                                    })}
-                                    key={name}
-                                    type={type}
-                                    placeholder={placeholder}
-                                />
+                                <div key={name}>
+                                    <InputStyle
+                                        {...register(name, validation)}
+                                        type={type}
+                                        placeholder={placeholder}
+                                        aria-label={placeholder}
+                                    />
+                                    {errors[name] && (
+                                        <span role="alert">{errors[name]?.message as string}</span>
+                                    )}
+                                </div>
                             );
                         })}
                         <ContainerButtonStyle>
-                            <ButtonStyle type="submit">
-                                {t("SEND_FORM")}
+                            <ButtonStyle 
+                                type="submit" 
+                                disabled={isSubmitting}
+                                aria-label={t("SEND_FORM")}
+                            >
+                                {isSubmitting ? t("SUBMITTING") : t("SEND_FORM")}
                             </ButtonStyle>
                         </ContainerButtonStyle>
                     </form>

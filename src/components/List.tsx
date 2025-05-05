@@ -1,7 +1,6 @@
 import React, { Fragment, useMemo } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid } from "uuid";
 
-/* Optional id for key */
 interface Identifiable {
     id?: string;
 }
@@ -15,9 +14,8 @@ const List = <T extends Identifiable>({
     items,
     renderItems,
 }: ListPropsType<T>) => {
-    /* Stable ids to prevent unnecessary */
     const stableKeys = useMemo(() => {
-        return items.map((item) => item.id || uuidv4());
+        return items.map((item) => item.id || uuid());
     }, [items]);
 
     return (
